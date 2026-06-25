@@ -1,6 +1,6 @@
-# Throughline Prototype
+# GPT-Sidekick Prototype
 
-Throughline is a Chrome MV3 side-panel prototype for ChatGPT conversations. It is meant to prove the core shape from `throughline-product-plan.md`: a local-first, source-linked outline that helps recover decisions, actions, questions, artifacts, code, and corrections from a long chat.
+GPT-Sidekick is a Chrome MV3 side-panel prototype for ChatGPT conversations. It is meant to prove the core shape from `gpt-sidekick-product-plan.md`: a local-first, source-linked outline that helps recover decisions, actions, questions, artifacts, code, and corrections from a long chat.
 
 This is a prototype, not a finished extension.
 
@@ -59,7 +59,7 @@ pnpm build
 4. Choose Load unpacked.
 5. Select this repo's `dist` directory.
 6. Open a ChatGPT conversation on `chatgpt.com` or `chat.openai.com`.
-7. Open the Throughline side panel from the extension action.
+7. Open the GPT-Sidekick side panel from the extension action.
 
 ## Architecture Map
 

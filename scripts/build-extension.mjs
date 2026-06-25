@@ -32,7 +32,7 @@ await build({
     sourcemap: true,
     lib: {
       entry: resolve(root, "src/extension/content-script.ts"),
-      name: "ThroughlineContent",
+      name: "GPTSidekickContent",
       formats: ["iife"],
       fileName: () => "assets/content-script.js"
     }
@@ -49,7 +49,7 @@ await build({
     sourcemap: true,
     lib: {
       entry: resolve(root, "src/extension/service-worker.ts"),
-      name: "ThroughlineServiceWorker",
+      name: "GPTSidekickServiceWorker",
       formats: ["iife"],
       fileName: () => "assets/service-worker.js"
     }
@@ -58,9 +58,9 @@ await build({
 
 const manifest = {
   manifest_version: 3,
-  name: "Throughline Prototype",
+  name: "GPT-Sidekick Prototype",
   version: "0.1.0",
-  description: "A local-first, source-linked outline side panel for loaded ChatGPT conversations.",
+  description: "A local-first, source-linked side panel for loaded ChatGPT conversations.",
   permissions: ["storage", "sidePanel", "activeTab"],
   host_permissions: ["https://chatgpt.com/*", "https://chat.openai.com/*"],
   background: {
@@ -70,7 +70,7 @@ const manifest = {
     default_path: "sidepanel.html"
   },
   action: {
-    default_title: "Open Throughline"
+    default_title: "Open GPT-Sidekick"
   },
   content_scripts: [
     {

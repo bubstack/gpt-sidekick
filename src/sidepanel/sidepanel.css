@@ -32,7 +32,7 @@ button:hover {
   background: #eef4f8;
 }
 
-.throughline-panel {
+.gpt-sidekick-panel {
   display: grid;
   gap: 12px;
   padding: 14px;

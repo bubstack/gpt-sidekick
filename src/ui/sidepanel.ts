@@ -24,13 +24,13 @@ export function renderSidePanel(root: Element, state: SidePanelState, options: S
   const documentRef = root.ownerDocument;
   const clipboard = options.clipboard ?? documentRef.defaultView?.navigator.clipboard;
   root.replaceChildren();
-  root.classList.add("throughline-panel");
+  root.classList.add("gpt-sidekick-panel");
 
   const header = documentRef.createElement("header");
   header.className = "panel-header";
 
   const title = documentRef.createElement("h1");
-  title.textContent = "Throughline";
+  title.textContent = "GPT-Sidekick";
   header.append(title);
   header.append(renderStatus(documentRef, state));
 

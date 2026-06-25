@@ -166,7 +166,7 @@ export class MemoryThreadStorage {
 
   constructor(options: { area: "local" | "sync" } = { area: "local" }) {
     if (options.area !== "local") {
-      throw new Error("Throughline storage is local-only for this prototype.");
+      throw new Error("GPT-Sidekick storage is local-only for this prototype.");
     }
     this.area = "local";
   }
@@ -241,7 +241,7 @@ export class HeuristicOutlineExtractor implements OutlineExtractor {
   }
 }
 
-export class ThroughlineCore {
+export class GPTSidekickCore {
   private snapshot: ThreadSnapshot | undefined;
 
   constructor(
@@ -311,7 +311,7 @@ export function toSidePanelState(snapshot?: ThreadSnapshot): { indexingStatus: I
 }
 
 export function threadStorageKey(conversationId: string): string {
-  return `throughline:thread:${conversationId}`;
+  return `gpt-sidekick:thread:${conversationId}`;
 }
 
 function normalizeRequired(value: string, field: string): string {

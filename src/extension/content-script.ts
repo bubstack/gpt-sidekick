@@ -1,14 +1,14 @@
 import {
   ChromeLocalThreadStorage,
+  GPTSidekickCore,
   HeuristicOutlineExtractor,
-  ThroughlineCore,
   threadStorageKey
 } from "../core";
 import { ChatGPTContentAdapter } from "../adapters/chatgpt";
 import type { IndexingStatus, SourceAnchor, TranscriptEvent } from "../core/types";
 
 const storage = hasChromeStorage() ? new ChromeLocalThreadStorage(chrome.storage.local) : undefined;
-const core = new ThroughlineCore({
+const core = new GPTSidekickCore({
   extractor: new HeuristicOutlineExtractor(),
   storage,
   maxEventsPerSegment: 6
@@ -29,7 +29,7 @@ adapter.observeNewMessages();
 
 if (hasChromeRuntime()) {
   chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-    if (message?.type !== "throughline:jump-to-source") {
+    if (message?.type !== "gpt-sidekick:jump-to-source") {
       return false;
     }
 

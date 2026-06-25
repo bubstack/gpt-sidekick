@@ -18,7 +18,7 @@ if (hasChromeStorage()) {
     }
 
     const nextSnapshot = Object.entries(changes)
-      .filter(([key]) => key.startsWith("throughline:thread:"))
+      .filter(([key]) => key.startsWith("gpt-sidekick:thread:"))
       .map(([, change]) => change.newValue as ThreadSnapshot | undefined)
       .find(Boolean);
 
@@ -36,7 +36,7 @@ async function renderFromStorage(): Promise<void> {
 
   const stored = await chrome.storage.local.get(null);
   const latest = Object.entries(stored)
-    .filter(([key]) => key.startsWith("throughline:thread:"))
+    .filter(([key]) => key.startsWith("gpt-sidekick:thread:"))
     .map(([, value]) => value as ThreadSnapshot)
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0];
 
@@ -61,7 +61,7 @@ async function jumpToSource(anchor: SourceAnchor): Promise<void> {
     return;
   }
 
-  await chrome.tabs.sendMessage(tab.id, { type: "throughline:jump-to-source", anchor });
+  await chrome.tabs.sendMessage(tab.id, { type: "gpt-sidekick:jump-to-source", anchor });
 }
 
 function hasChromeStorage(): boolean {

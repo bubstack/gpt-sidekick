@@ -24,7 +24,7 @@ type CaptureResult = {
 
 const MESSAGE_SELECTOR = [
   "article[data-message-author-role]",
-  "[data-throughline-message]",
+  "[data-gpt-sidekick-message]",
   "[data-message-id][data-message-author-role]",
   'article[data-testid^="conversation-turn-"]'
 ].join(",");
@@ -101,11 +101,11 @@ export class ChatGPTContentAdapter {
       return false;
     }
 
-    for (const active of this.documentRef.querySelectorAll('[data-throughline-active-source="true"]')) {
-      delete (active as HTMLElement).dataset.throughlineActiveSource;
+    for (const active of this.documentRef.querySelectorAll('[data-gpt-sidekick-active-source="true"]')) {
+      delete (active as HTMLElement).dataset.gptSidekickActiveSource;
     }
 
-    target.dataset.throughlineActiveSource = "true";
+    target.dataset.gptSidekickActiveSource = "true";
     target.scrollIntoView({ block: "center", behavior: "smooth" });
     return true;
   }
@@ -207,8 +207,8 @@ function readMessageText(element: HTMLElement): string {
 }
 
 function generatedAnchorLocator(element: HTMLElement, messageId: string): string {
-  element.dataset.throughlineGeneratedId = messageId;
-  return `[data-throughline-generated-id="${cssEscape(messageId)}"]`;
+  element.dataset.gptSidekickGeneratedId = messageId;
+  return `[data-gpt-sidekick-generated-id="${cssEscape(messageId)}"]`;
 }
 
 function generatedMessageId(conversationId: string, role: string, text: string, index: number): string {

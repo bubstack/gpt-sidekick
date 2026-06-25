@@ -138,7 +138,7 @@ describe("ChatGPT content adapter", () => {
     expect(result.state.state).toBe("partial");
     expect(result.state.detail).toMatch(/missing stable message id/i);
     expect(result.events[0]?.messageId).toMatch(/^generated-/);
-    expect(result.events[0]?.anchor.locator).toMatch(/data-throughline-generated-id/);
+    expect(result.events[0]?.anchor.locator).toMatch(/data-gpt-sidekick-generated-id/);
   });
 
   it("jumps back to a source anchor", () => {
@@ -155,6 +155,6 @@ describe("ChatGPT content adapter", () => {
 
     expect(adapter.jumpToSource({ kind: "dom", locator: '[data-message-id="a-1"]' })).toBe(true);
     expect(target.scrollIntoView).toHaveBeenCalledWith({ block: "center", behavior: "smooth" });
-    expect(target.dataset.throughlineActiveSource).toBe("true");
+    expect(target.dataset.gptSidekickActiveSource).toBe("true");
   });
 });

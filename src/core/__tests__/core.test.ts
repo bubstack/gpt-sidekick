@@ -26,7 +26,7 @@ const transcriptEvent = (overrides: Partial<TranscriptEvent> = {}) =>
     ...overrides
   });
 
-describe("Throughline core", () => {
+describe("GPT-Sidekick core", () => {
   it("normalizes TranscriptEvent records from adapter input", () => {
     const event = transcriptEvent({
       role: "user",
