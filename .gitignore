@@ -1,0 +1,4 @@
+node_modules/
+.pnpm-store/
+
+throughline-product-plan.md
