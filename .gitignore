@@ -2,5 +2,4 @@ node_modules/
 .pnpm-store/
 dist/
 
-throughline-product-plan.md
 .DS_Store
